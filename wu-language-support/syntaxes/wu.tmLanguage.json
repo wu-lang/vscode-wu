@@ -1,0 +1,67 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Wu",
+	"patterns": [
+		{ "include": "#keywords" },
+		{ "include": "#strings" },
+		{ "include": "#raw strings" },
+		{ "include": "#block comments" },
+		{ "include": "#oneliner comments" },
+		{ "include": "#cusswords"},
+		{ "include": "#types"},
+		{ "include": "#declarations"}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.wu",
+				"match": "\\b(if|elif|else|while|for|loop|return)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.wu",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.wu",
+					"match": "\\\\."
+				}
+			]
+		},
+		"raw strings": {
+			"name": "string.quoted.other.wu",
+			"begin": "r\"",
+			"end": "\"",
+			"patterns": [ ]
+		},
+		"oneliner comments": {
+			"name": "comment.line.double-dash.wu",
+			"begin": "--",
+			"end": "\n",
+			"patterns": [ { "include": "#cusswords"} ]
+		},
+		"block comments": {
+			"name": "comment.block.wu",
+			"begin": "---",
+			"end": "---",
+			"patterns": [ { "include": "#cusswords"} ]
+		},
+		"cusswords": {
+			"name": "invalid.illegal.cussword.wu",
+			"match": "\\b([Bb]itch|[Ff]uck|[Ff]ucking|[Ff]ucked|[Ff]ucky|[Ff]ucker|[Ff]aggot|[Cc]unt|[Tt]wat|[Pp]utin)\\b",
+			"patterns": [ ]
+		},
+		"types": {
+			"name": "storage.type.wu",
+			"match": "\\b(struct|int|float|bool|char|string)\\b",
+			"patterns": [ ]
+		},
+		"declarations": {
+			"name": "variable.other.wu",
+			"match": "\\b(.*)\\w*(::|:|:=)",
+			"patterns": [ ]
+		}
+	},
+	"scopeName": "source.wu"
+}

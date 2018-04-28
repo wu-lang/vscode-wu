@@ -1,0 +1,50 @@
+-- Comment "containing a string"
+---
+Multi
+line 
+Comment
+---
+"Strings with \Escapes"
+r"Raw strings with no \escape"
+if, elif, else, for, while, loop, return
+
+
+---
+Example program
+---
+Wand :: struct {
+  damage: float = 0
+  weigt: string = "rather heavy"
+}
+
+Class :: struct {
+  name:     string
+  height:   int
+
+  weapon: { damage: float, weight: string }
+}
+
+wizard := Class {
+  name :   "gargamel"
+  height: 102
+  
+  weapon: Wand {}
+}
+
+
+
+main :: () -> loop {
+
+  beginning := prompt("you are in a swamp, walk left or right? [y/N] ")
+
+  match beginning lowercase() {
+    | "y" -> print("ok fair")
+    | _   -> print("sure, fine")
+  }
+
+  height := prompt("how tall? [0-9+]")
+
+  wizard height = height to_int()
+
+  print("ok, now again ...\n")
+} 

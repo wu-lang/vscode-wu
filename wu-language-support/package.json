@@ -1,0 +1,26 @@
+{
+    "name": "wu-language-support",
+    "displayName": "Wu Language Support",
+    "description": "Language Support for Wu",
+    "version": "0.0.1",
+    "publisher": "wu-team",
+    "engines": {
+        "vscode": "^1.22.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "wu",
+            "aliases": ["Wu", "wu"],
+            "extensions": [".wu",".w"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "wu",
+            "scopeName": "source.wu",
+            "path": "./syntaxes/wu.tmLanguage.json"
+        }]
+    }
+}
