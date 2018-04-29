@@ -2,20 +2,23 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Wu",
 	"patterns": [
-		{ "include": "#keywords" },
-		{ "include": "#strings" },
-		{ "include": "#raw strings" },
 		{ "include": "#block comments" },
 		{ "include": "#oneliner comments" },
-		{ "include": "#cusswords"},
+		{ "include": "#keywords" },
 		{ "include": "#types"},
-		{ "include": "#declarations"}
+		{ "include": "#strings" },
+		{ "include": "#raw strings" },
+		{ "include": "#integers" },
+		{ "include": "#floats" },
+		{ "include": "#bools" },
+		{ "include": "#declarations"},
+		{ "include": "#cusswords"}
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.wu",
-				"match": "\\b(if|elif|else|while|for|loop|return)\\b"
+				"match": "\\b(if|elif|else|while|for|in|loop|break|skip|return)\\b"
 			}]
 		},
 		"strings": {
@@ -35,6 +38,21 @@
 			"end": "\"",
 			"patterns": [ ]
 		},
+		"integers": {
+			"name": "constant.number.integer.wu",
+			"match": "[0-9]+",
+			"patterns": [ ]
+		},
+		"floats": {
+			"name": "constant.number.float.wu",
+			"match": "[0-9]+.[0-9]*",
+			"patterns": [ ]
+		},
+		"bools": {
+			"name": "constant.language.wu",
+			"match": "(true|false)",
+			"patterns": [ ]
+		},
 		"oneliner comments": {
 			"name": "comment.line.double-dash.wu",
 			"begin": "--",
@@ -43,8 +61,8 @@
 		},
 		"block comments": {
 			"name": "comment.block.wu",
-			"begin": "---",
-			"end": "---",
+			"begin": "---+",
+			"end": "---+",
 			"patterns": [ { "include": "#cusswords"} ]
 		},
 		"cusswords": {
@@ -59,7 +77,7 @@
 		},
 		"declarations": {
 			"name": "variable.other.wu",
-			"match": "\\b(.*)\\w*(::|:|:=)",
+			"match": "(.*)\\w*(::|:|:=)",
 			"patterns": [ ]
 		}
 	},
