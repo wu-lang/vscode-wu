@@ -18,7 +18,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.wu",
-				"match": "\\b(if|elif|else|while|for|in|loop|break|skip|return)\\b"
+				"match": "\\b(if|elif|else|while|for|in|loop|break|skip|return|def|type|trait|implement|->|=>)\\b"
 			}]
 		},
 		"strings": {
@@ -72,7 +72,7 @@
 		},
 		"types": {
 			"name": "storage.type.wu",
-			"match": "\\b(struct|int|float|bool|char|string)\\b",
+			"match": "\\b(int|float|bool|char|str)\\b",
 			"patterns": [ ]
 		},
 		"declarations": {
