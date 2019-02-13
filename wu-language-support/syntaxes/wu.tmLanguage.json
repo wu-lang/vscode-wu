@@ -2,23 +2,23 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Wu",
 	"patterns": [
-		{ "include": "#block comments" },
 		{ "include": "#oneliner comments" },
 		{ "include": "#keywords" },
-		{ "include": "#types"},
+		{ "include": "#types" },
 		{ "include": "#strings" },
 		{ "include": "#raw strings" },
 		{ "include": "#integers" },
 		{ "include": "#floats" },
 		{ "include": "#bools" },
-		{ "include": "#declarations"},
-		{ "include": "#cusswords"}
+		{ "include": "#operators" },
+		{ "include": "#cusswords" },
+		{ "include": "#calls" }
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.wu",
-				"match": "\\b(if|elif|else|while|for|in|loop|break|skip|return|def|type|trait|implement|->|=>)\\b"
+				"match": "\\b(fun|->|=>|return|as|if|elif|else|switch|while|skip|break|module|extern|struct|new|implement|import|interface|trait)\\b"
 			}]
 		},
 		"strings": {
@@ -50,19 +50,13 @@
 		},
 		"bools": {
 			"name": "constant.language.wu",
-			"match": "(true|false)",
+			"match": "\\b(true|false|nil|self)\\b",
 			"patterns": [ ]
 		},
 		"oneliner comments": {
 			"name": "comment.line.double-dash.wu",
-			"begin": "--",
+			"begin": "#",
 			"end": "\n",
-			"patterns": [ { "include": "#cusswords"} ]
-		},
-		"block comments": {
-			"name": "comment.block.wu",
-			"begin": "---+",
-			"end": "---+",
 			"patterns": [ { "include": "#cusswords"} ]
 		},
 		"cusswords": {
@@ -72,12 +66,17 @@
 		},
 		"types": {
 			"name": "storage.type.wu",
-			"match": "\\b(int|float|bool|char|str)\\b",
+			"match": "((\\.\\.\\.)?\\b(int|float|bool|char|str|any|nil|[A-Z]\\w+)\\b|\\.\\.\\.)\\??",
 			"patterns": [ ]
 		},
-		"declarations": {
-			"name": "variable.other.wu",
-			"match": "(.*)\\w*(::|:|:=)",
+		"operators": {
+			"name": "keyword.operator.wu",
+			"match": "(\\:=|\\=|\\?|!|\\^|\\+\\+|\\+|\\-|\\*|\\/|%|==|!=|<=|>=|<|>|\\b(or|and|not)\\b)",
+			"patterns": [ ]
+		},
+		"calls": {
+			"name": "entity.name.function.wu",
+			"match": "\\b(\\w+\\s*\\()",
 			"patterns": [ ]
 		}
 	},
