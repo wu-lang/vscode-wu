@@ -76,7 +76,7 @@
 		},
 		"calls": {
 			"name": "entity.name.function.wu",
-			"match": "\\b(\\w+\\s*\\()",
+			"match": "\\b(\\w+)(?=\\s*\\()",
 			"patterns": [ ]
 		}
 	},
