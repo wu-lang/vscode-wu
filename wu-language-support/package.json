@@ -2,7 +2,7 @@
     "name": "wu-language-support",
     "displayName": "Wu Language Support",
     "description": "Language Support for Wu",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "publisher": "wu-team",
     "engines": {
         "vscode": "^1.22.0"
